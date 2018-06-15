@@ -14,7 +14,7 @@ On top of that, a conversion to allow output format control has been implemented
 - u : underlined
 - ! : bold
 - R, G, B, y, m, c, b, w : color presets (red, green, blue, yellow, magenta, cyan, black, white)
-- # : color in hexadecimal
+- \# : color in hexadecimal
 - @ : color as argument
 - ":" : if preceding a color argument, sets the background color
 

@@ -6,7 +6,7 @@
 /*   By: njaber <neyl.jaber@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/26 18:08:23 by njaber            #+#    #+#             */
-/*   Updated: 2018/01/19 07:22:12 by njaber           ###   ########.fr       */
+/*   Updated: 2018/01/19 12:25:07 by njaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void		pf_dbl(t_mods mods, t_byte *parm, t_buf *buf, va_list arg)
 		chr_totmpbuf(' ', mods.field - 3 + (nb.l == (0xFFFul << 52)), buf, 1);
 	if (((nb.l >> 52) & 0x7FF) == 0x7FF && nb.l << 12)
 		str_totmpbuf(parm[1] ? "NAN" : "nan", 3, buf, 0);
-	else if (((nb.l >> 52) & 0x7FF) == 0x7FF && (nb.l >> 60) == 8)
+	else if (((nb.l >> 52) & 0x7FF) == 0x7FF && (nb.l >> 60) == 0x8)
 		str_totmpbuf(parm[1] ? "-INF" : "-inf", 4, buf, 0);
 	else if (((nb.l >> 52) & 0x7FF) == 0x7FF)
 		str_totmpbuf(parm[1] ? "INF" : "inf", 3, buf, 0);

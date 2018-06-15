@@ -6,7 +6,7 @@
 /*   By: njaber <neyl.jaber@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 21:11:02 by njaber            #+#    #+#             */
-/*   Updated: 2018/01/19 05:31:57 by njaber           ###   ########.fr       */
+/*   Updated: 2018/01/19 10:06:15 by njaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static char		*convert(char *format, va_list args, va_list arg_t, t_buf *buf)
 		if (*(format + i) == '$')
 		{
 			nb = ft_atoi(format);
+			va_copy(arg_c, args);
 			while (nb-- > 1)
 				va_arg(arg_c, long);
-			va_copy(arg_c, args);
 			format = ft_mapper(format + i + 1, arg_c, buf);
 			va_end(arg_c);
 			return (format);

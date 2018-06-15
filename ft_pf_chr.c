@@ -6,29 +6,11 @@
 /*   By: njaber <neyl.jaber@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 13:03:22 by njaber            #+#    #+#             */
-/*   Updated: 2018/01/18 11:47:32 by njaber           ###   ########.fr       */
+/*   Updated: 2018/01/19 11:24:43 by njaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-size_t			pf_chr_len(t_mods mods, t_byte *parm, va_list arg)
-{
-	va_list	arg_cpy;
-	t_ucd	c8;
-
-	(void)parm;
-	if (mods.cast == 'l')
-	{
-		va_copy(arg_cpy, arg);
-		c8.wi = va_arg(arg_cpy, wint_t);
-		va_end(arg_cpy);
-		c8.wi = uctou8(c8.wi);
-		c8.c[4] = 0;
-		return (ft_strlen(c8.c));
-	}
-	return (1);
-}
 
 void			pf_chr(t_mods mods, t_byte *parm, t_buf *buf, va_list arg)
 {
